@@ -1,6 +1,19 @@
-# 1. Pull down your Azure Container Registry image
-FROM rdagentappregistry.azurecr.io/rd-agent-mle:20250623
-
+{
+  "name": "rd-agent-mle DevContainer",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "workspaceFolder": "/workspaces/RD-Agent",
+  "remoteUser": "root",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter"
+      ]
+    }
+  },
+  "postCreateCommand": "pip install -e . && pip install -r requirements.txt"
+}
 # 2. (Optional) install any additional tools you need
 #    e.g. git, bash-completion, etc.
 # RUN apt update && \
